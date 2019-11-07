@@ -2,6 +2,10 @@
  * Entry File for Webpack
  */
 
-// Import Needed, so Webpack listens to Changes
-// TODO set Path of Styles
+// Import Style.scss, so Webpack listens to Changes
 import './../assets/scss/style.scss';
+
+// Is Development Started?
+if (process.env.NODE_ENV !== 'production') {
+  console.log('Executed in Dev-Mode!');
+}

@@ -12,14 +12,12 @@ const themePath = '/Users/fabiankuhn/git_websites/Test/webpack/wordpress/wp-cont
  */ 
 
 module.exports = {
-  entry: './webpack-entry.js',
+  entry: './webpack-entry.js', // Main Entry: Is included in functions.php
   output: {
-    filename: 'main.js',
+    filename: 'main.js', // Is included in functions.php
 
-    // Absolute Path
+    // Set Path of Wordpress Themes ('.../wp-content/themes') as absolute Path
     path: themePath + '/' + themeName + '/assets',
 	
-	// Relative Path with 'const path = require('path');'
-	// path: path.resolve(__dirname, '../../babibubi'),
   },  
 };

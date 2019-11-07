@@ -1,6 +1,7 @@
+// Entry SCSS from webpack-entry.js
 @import './general.scss';
 
-$body-color: red;
+$body-color: blue;
 
 body {
   color: $body-color;

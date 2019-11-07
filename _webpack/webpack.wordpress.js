@@ -8,10 +8,11 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 module.exports = merge(common, {
   
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'inline-source-map', // Use Source-Maps for Debug
 
   plugins: [
-  BrowserSyncPlugin({
+  // Plugin to Reload Browser According to Proxy 127.0.0.1:8080 (Wordpress PHP)
+  new BrowserSyncPlugin({
       host: 'localhost',
       port: 3000,
       proxy: '127.0.0.1:8080',
@@ -24,23 +25,28 @@ module.exports = merge(common, {
           ],
         },
       ],
-      notify: true,
+      notify: false,
     },
     {
       reload: true,
     }),
-    ),
+
+    // Extract CSS
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+
+    // Copy all Files to Entry Output Path except Github, Webpack and 
+    // Original Sources (Before Webpack Processing)
     new CopyPlugin([
       {
         from: '../',
         to: '../',
         ignore: [
           '_webpack/**',
-          'assets/**'
+          'assets/**',
+          '.git/**',
         ],
       },
     ]),
@@ -48,6 +54,7 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
+        // Listen for Sass and CSS
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
