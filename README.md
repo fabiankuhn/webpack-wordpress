@@ -1,17 +1,23 @@
-# Webpack Config for Wordpress
+# Wordpress
 
 This Repo is suited as Starter-Template for Blanc Wordpress Themes. Webpack is used to compile Sass and CSS is then given to Project folder. With Browsersync, a refresh of a started Wordpress Server is triggered.
 
-## Quick Start
-- Start Wordpress Server with $ php -S 127.0.0.1:8080
-- git clone git@github.com:fabiankuhn/webpack-wordpress.git
-- cd cd webpack-wordpress
-- cd _webpack
-- npm install
-- Configure Paths in webpack.common.js
-- npm run wordpress (Webpack starts)
-- check if new Theme was created
-- Select theme in Wordpress
+> By: Fabian Kuhn
+
+> Date: 29.01.2021
+
+## Getting Started
+- `$ docker compose up -d` Run docker compose
+- `$ npm run wordpress` Run Wordpress Webpack
+- Follow instructions to setup Database
+- Select test_theme
+    - Log into wordpress: http://localhost:3008/wp-admin/
+    - Select Appearance
+    - Select "Wordpress Webpack-Blank Theme"
+- `$ sh dump-tables.sh -p somewordpress` Backup Database with script
+- Backup Data in Git
+
+## Webpack Config for Wordpress
 
 ### Files
 - webpack.common.js: Basic Setup for Webpack: Project Path is set

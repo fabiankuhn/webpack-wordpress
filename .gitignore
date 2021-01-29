@@ -1,2 +1,4 @@
 .DS_Store
-_webpack/node_modules
+node_modules
+build
+.idea
