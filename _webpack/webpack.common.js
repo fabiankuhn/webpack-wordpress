@@ -4,7 +4,7 @@
  */ 
 
 const themeName = 'test-theme'
-const themePath = '/Users/fabiankuhn/git_websites/Test/webpack/wordpress/wp-content/themes'
+const themePath = '/Users/kufa/Desktop/wordpress/wp-content/themes'
 
 
 /*
