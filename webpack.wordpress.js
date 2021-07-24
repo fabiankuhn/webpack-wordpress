@@ -2,22 +2,20 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
-const themeName = 'test-theme';
-const themePath = '/Users/kufa/Desktop/wordpress-docker/webpack-wordpress/build';
+const themeName = 'my-theme';
+const themePath = __dirname + '/build';
 
-// This Config Exports the FIles with Source Maps for Wordpress Development
+// This Config Exports the Files with Source Maps for Wordpress Development
 module.exports = {
 
   entry: './src/styling/style.scss', // Main Entry: Is included in functions.php
   output: {
     filename: 'main.js', // Is included in functions.php
-
-    // Set Path of Wordpress Themes ('.../wp-content/themes') as absolute Path
     path: themePath + '/' + themeName + '/assets',
   },
 
   mode: 'development',
-  devtool: 'inline-source-map', // Use Source-Maps for Debug
+  devtool: 'inline-source-map', // Use Source-Maps for Debugging
 
   plugins: [
     // Plugin to Reload Browser According to Proxy 127.0.0.1:8000 (Wordpress PHP)
@@ -46,17 +44,21 @@ module.exports = {
       chunkFilename: '[id].css',
     }),
 
-    // Copy all Files to Entry Output Path except Github, Webpack and 
+    // Copy all Files to Entry Output Path except Github, Webpack and
     // Original Sources (Before Webpack Processing)
-    new CopyPlugin([
-      {
-        from: './src',
-        to: '../',
-        ignore: [
-          'styling/**',
-        ],
-      },
-    ]),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: './src',
+          to: '../',
+          globOptions: {
+            ignore: [
+              'styling/**',
+            ]
+          }
+        }
+      ]
+    }),
   ],
   module: {
     rules: [
