@@ -10,7 +10,7 @@ done
 for t in $(docker exec -e MYSQL_PWD=${SQL_ROOT_PASSWORD} webpack-wordpress_db_1 mysql -u root -N wordpress -e 'show tables')
 do
   echo "Dump" $t
-  docker exec -e MYSQL_PWD=${SQL_ROOT_PASSWORD} webpack-wordpress_db_1 mysqldump --extended-insert=FALSE --complete-insert --dump-date=false wordpress -u root $t > ./db_dump/$t.sql
+  docker exec -e MYSQL_PWD=${SQL_ROOT_PASSWORD} webpack-wordpress_db_1 mysqldump --extended-insert=FALSE --complete-insert --dump-date=false wordpress -u root $t > ./wordpress/db_dump/$t.sql
 done
 
 echo "Completed"

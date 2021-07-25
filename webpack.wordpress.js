@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 const themeName = 'my-theme';
-const themePath = __dirname + '/build';
+const themePath = __dirname + '/wordpress/theme-build';
 
 // This Config Exports the Files with Source Maps for Wordpress Development
 module.exports = {
@@ -53,7 +53,7 @@ module.exports = {
           to: '../',
           globOptions: {
             ignore: [
-              'styling/**',
+              '**/styling/**/*'
             ]
           }
         }
