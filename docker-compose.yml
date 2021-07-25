@@ -27,5 +27,6 @@ services:
      volumes:
        - ./wordpress/theme-build:/var/www/html/wp-content/themes/
        - ./wordpress/plugins:/var/www/html/wp-content/plugins
+       - ./wordpress/uploads:/var/www/html/wp-content/uploads
 volumes:
     db_data: {}
