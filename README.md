@@ -8,14 +8,21 @@ This Repo is suited as Starter-Template for Blanc Wordpress Themes. Webpack is u
 
 ## Getting Started
 - `$ docker compose up -d` Run docker compose
-- `$ npm run wordpress` Run Wordpress Webpack
+- Go to [http://localhost:8000/](http://localhost:8000/)
 - Follow instructions to setup Database
 - Select my-theme
-    - Log into Wordpress: http://localhost:3008/wp-admin/
+    - Log into Wordpress: http://localhost:8000/wp-admin/
     - Select Appearance
     - Select "My Wordpress Theme"
+- `$ sh dump-tables.sh -p my-sql-root-password` Backup Setup
+- `$ git add -A && git commit` Commit changes
+
+## Development Cycle
+- `$ docker compose up -d` Launch Wordpress and SQL
+- `$ npm run dev` Run Dev Proxy
+- Go to [http://localhost:3000/](http://localhost:3000/) for awesome development experience
 - `$ sh dump-tables.sh -p my-sql-root-password` Backup Database with script
-- Backup Data in Git
+- `$ git add -A && git commit` Commit changes
 
 ### Inspiration
 - Getting Started https://webpack.js.org/guides/getting-started/
