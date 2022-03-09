@@ -4,8 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "wordpress": "webpack --watch --config webpack.wordpress.js"
+    "dev": "webpack --watch --config webpack.wordpress.js"
   },
   "keywords": [],
   "author": "",
